@@ -1,0 +1,739 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Critical Vitals — Silk-Lined Scrub Caps</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --plum-950:#25060f;
+  --plum-900:#33081a;
+  --plum-800:#4a0e28;
+  --plum-700:#671338;
+  --gold-500:#c89b3c;
+  --gold-300:#e3c274;
+  --cream-50:#faf1e4;
+  --cream-100:#f3e6d4;
+  --berry-600:#a12d40;
+  --berry-500:#c23a4f;
+  --ink-900:#1c1210;
+  --line: rgba(250,241,228,0.14);
+  --ease: cubic-bezier(.22,1,.36,1);
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  background:var(--cream-50);
+  color:var(--ink-900);
+  font-family:'Inter',sans-serif;
+  overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+}
+img,svg{display:block;max-width:100%;}
+a{color:inherit;text-decoration:none;}
+button{font-family:inherit;cursor:pointer;border:none;background:none;}
+.eyebrow{
+  font-family:'Space Mono',monospace;
+  font-size:.72rem;
+  letter-spacing:.22em;
+  text-transform:uppercase;
+  color:var(--gold-500);
+  display:inline-flex;
+  align-items:center;
+  gap:.6em;
+}
+.eyebrow::before{
+  content:'';
+  width:22px;height:1px;
+  background:var(--gold-500);
+  display:inline-block;
+}
+h1,h2,h3,h4{
+  font-family:'Fraunces',serif;
+  font-weight:500;
+  line-height:1.05;
+  letter-spacing:-.01em;
+}
+.wrap{max-width:1240px;margin:0 auto;padding:0 32px;}
+@media(max-width:640px){.wrap{padding:0 20px;}}
+
+/* reveal on scroll */
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .9s var(--ease),transform .9s var(--ease);}
+.reveal.in{opacity:1;transform:translateY(0);}
+
+/* ===== NAV ===== */
+header{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  background:rgba(37,6,15,0.92);
+  backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--line);
+  transition:transform .5s var(--ease);
+}
+header.hide{transform:translateY(-100%);}
+.nav-inner{
+  max-width:1240px;margin:0 auto;padding:18px 32px;
+  display:flex;align-items:center;justify-content:space-between;
+  color:var(--cream-50);
+}
+.logo{
+  font-family:'Fraunces',serif;font-size:1.35rem;font-weight:600;
+  letter-spacing:.01em;color:var(--cream-50);
+  display:flex;align-items:baseline;gap:8px;
+}
+.logo span{color:var(--gold-300);font-family:'Space Mono',monospace;font-size:.6rem;letter-spacing:.18em;text-transform:uppercase;font-weight:400;}
+.nav-links{display:flex;gap:38px;font-size:.88rem;letter-spacing:.02em;}
+.nav-links a{position:relative;padding:4px 0;opacity:.86;transition:opacity .3s;}
+.nav-links a:hover{opacity:1;}
+.nav-links a::after{
+  content:'';position:absolute;left:0;bottom:-2px;width:0;height:1px;background:var(--gold-300);
+  transition:width .35s var(--ease);
+}
+.nav-links a:hover::after{width:100%;}
+.nav-right{display:flex;align-items:center;gap:22px;}
+.icon-btn{position:relative;color:var(--cream-50);display:flex;align-items:center;}
+.icon-btn svg{width:20px;height:20px;stroke:currentColor;fill:none;stroke-width:1.5;}
+.cart-count{
+  position:absolute;top:-8px;right:-10px;background:var(--berry-500);color:#fff;
+  font-family:'Space Mono',monospace;font-size:.62rem;width:17px;height:17px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;transform:scale(0);transition:transform .35s var(--ease);
+}
+.cart-count.show{transform:scale(1);}
+.burger{display:none;flex-direction:column;gap:5px;background:none;}
+.burger span{width:22px;height:1.5px;background:var(--cream-50);}
+@media(max-width:860px){
+  .nav-links{display:none;}
+  .burger{display:flex;}
+}
+
+/* ===== HERO ===== */
+.hero{
+  min-height:100vh;
+  background:
+    radial-gradient(ellipse 90% 70% at 82% 18%, rgba(200,155,60,.20), transparent 60%),
+    radial-gradient(ellipse 70% 60% at 10% 90%, rgba(162,45,64,.35), transparent 60%),
+    linear-gradient(160deg,var(--plum-950),var(--plum-900) 45%,var(--plum-800));
+  color:var(--cream-50);
+  position:relative;
+  display:flex;align-items:center;
+  padding-top:110px;padding-bottom:60px;
+  overflow:hidden;
+}
+.hero-grid{
+  max-width:1240px;margin:0 auto;padding:0 32px;
+  display:grid;grid-template-columns:1.05fr .95fr;gap:40px;align-items:center;width:100%;
+}
+@media(max-width:900px){.hero-grid{grid-template-columns:1fr;}}
+.hero-text .eyebrow{margin-bottom:22px;}
+.hero-text h1{font-size:clamp(2.6rem,5.2vw,4.4rem);color:var(--cream-50);}
+.hero-text h1 em{font-style:italic;color:var(--gold-300);font-weight:400;}
+.hero-text p{margin-top:24px;font-size:1.08rem;line-height:1.7;color:rgba(250,241,228,.78);max-width:460px;}
+.hero-cta{display:flex;gap:16px;margin-top:38px;flex-wrap:wrap;align-items:center;}
+.btn-primary{
+  background:var(--berry-500);color:#fff;padding:16px 34px;border-radius:100px;
+  font-size:.9rem;letter-spacing:.03em;font-weight:600;
+  transition:background .3s,transform .3s;position:relative;overflow:hidden;
+}
+.btn-primary:hover{background:var(--berry-600);transform:translateY(-2px);}
+.btn-ghost{
+  color:var(--cream-50);padding:16px 8px;font-size:.88rem;letter-spacing:.02em;
+  border-bottom:1px solid rgba(250,241,228,.4);display:inline-flex;align-items:center;gap:8px;
+  transition:border-color .3s,gap .3s;
+}
+.btn-ghost:hover{border-color:var(--gold-300);gap:12px;}
+.hero-stats{display:flex;gap:34px;margin-top:52px;padding-top:28px;border-top:1px solid var(--line);}
+.hero-stats div b{display:block;font-family:'Fraunces',serif;font-size:1.5rem;color:var(--gold-300);font-weight:500;}
+.hero-stats div span{font-size:.74rem;letter-spacing:.04em;color:rgba(250,241,228,.6);}
+
+/* hero visual — layered cap illustration */
+.hero-visual{position:relative;display:flex;align-items:center;justify-content:center;height:520px;}
+.cap-orbit{position:absolute;inset:0;border:1px dashed rgba(227,194,116,.3);border-radius:50%;animation:spin 40s linear infinite;}
+@keyframes spin{to{transform:rotate(360deg);}}
+.cap-orbit.o2{inset:40px;border-color:rgba(250,241,228,.16);animation-duration:60s;animation-direction:reverse;}
+.hero-cap{
+  width:300px;height:300px;border-radius:50%;position:relative;
+  background:
+    radial-gradient(circle at 32% 26%, rgba(255,255,255,.35), transparent 45%),
+    conic-gradient(from 220deg,#c23a4f,#a12d40,#c89b3c,#c23a4f);
+  box-shadow:0 40px 90px -20px rgba(0,0,0,.6), inset 0 0 60px rgba(0,0,0,.25);
+  animation:float 6s ease-in-out infinite;
+}
+.hero-cap::before{
+  content:'';position:absolute;inset:0;border-radius:50%;
+  background-image:radial-gradient(rgba(255,255,255,.55) 2.5px, transparent 2.5px);
+  background-size:26px 26px;
+  mix-blend-mode:overlay;opacity:.55;
+}
+.hero-cap::after{
+  content:'';position:absolute;left:50%;bottom:-64px;transform:translateX(-50%);
+  width:2px;height:70px;background:linear-gradient(var(--cream-50),transparent);
+}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-16px)}}
+.price-badge{
+  position:absolute;bottom:6px;right:8%;background:var(--cream-50);color:var(--ink-900);
+  padding:14px 20px;border-radius:16px;box-shadow:0 20px 40px -10px rgba(0,0,0,.4);
+  animation:float 6s ease-in-out infinite;animation-delay:.4s;
+}
+.price-badge b{font-family:'Fraunces',serif;font-size:1.15rem;}
+.price-badge span{display:block;font-family:'Space Mono',monospace;font-size:.6rem;letter-spacing:.1em;color:var(--berry-500);text-transform:uppercase;}
+
+/* hero doc buttons */
+.hero-doc-btns{display:flex;gap:16px;margin-top:24px;flex-wrap:wrap;}
+.hero-doc-btn{
+  background:rgba(37,6,15,0.85);color:var(--cream-50);
+  border:1.5px solid rgba(250,241,228,0.2);
+  padding:14px 26px;border-radius:100px;
+  font-size:.88rem;font-weight:600;letter-spacing:.01em;
+  display:inline-flex;align-items:center;gap:10px;
+  transition:background .3s,border-color .3s,transform .3s;
+  backdrop-filter:blur(6px);
+}
+.hero-doc-btn:hover{background:rgba(194,58,79,0.85);border-color:rgba(250,241,228,0.4);transform:translateY(-2px);}
+.hero-doc-btn svg{width:18px;height:18px;stroke:var(--gold-300);fill:none;stroke-width:1.8;flex-shrink:0;}
+
+/* ribbon marquee */
+.marquee{
+  background:var(--gold-500);color:var(--plum-950);
+  overflow:hidden;white-space:nowrap;padding:13px 0;
+  border-top:1px solid var(--plum-950);border-bottom:1px solid var(--plum-950);
+}
+.marquee-track{display:inline-flex;animation:scroll 26s linear infinite;}
+.marquee-track span{
+  font-family:'Space Mono',monospace;font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;
+  padding:0 26px;display:inline-flex;align-items:center;gap:26px;
+}
+@keyframes scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* ===== SHOP SECTION ===== */
+.shop{padding:120px 0 80px;background:var(--cream-50);}
+.shop-head{display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:24px;margin-bottom:20px;}
+.shop-head h2{font-size:clamp(2rem,3.6vw,3rem);}
+.shop-head p{max-width:380px;color:#5c4a44;line-height:1.6;font-size:.96rem;}
+
+.toolbar{
+  display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;
+  margin:44px 0 34px;padding:16px 22px;border:1px solid rgba(28,18,16,.12);border-radius:14px;
+}
+.filters{display:flex;gap:10px;flex-wrap:wrap;}
+.chip{
+  padding:9px 18px;border-radius:100px;font-size:.82rem;border:1px solid rgba(28,18,16,.16);
+  transition:all .3s var(--ease);color:#4a3a35;
+}
+.chip.active,.chip:hover{background:var(--plum-950);color:var(--cream-50);border-color:var(--plum-950);}
+.sort-select{
+  font-family:'Inter',sans-serif;font-size:.82rem;padding:9px 16px;border-radius:100px;
+  border:1px solid rgba(28,18,16,.16);background:var(--cream-50);color:var(--ink-900);
+}
+
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;}
+@media(max-width:920px){.grid{grid-template-columns:repeat(2,1fr);gap:18px;}}
+@media(max-width:520px){.grid{grid-template-columns:1fr;}}
+
+.card{
+  background:#fff;position:relative;
+  transition:transform .5s var(--ease),box-shadow .5s var(--ease);
+}
+.card:hover{transform:translateY(-8px);box-shadow:0 30px 50px -20px rgba(37,6,15,.15);}
+.card-media{
+  aspect-ratio:1/1.1;position:relative;display:flex;align-items:center;justify-content:center;
+  background:#f4f4f4;overflow:hidden;
+}
+.card-media img{width:100%;height:100%;object-fit:cover;}
+.badge-new{
+  position:absolute;top:0;left:0;background:#b0000b;color:#fff;
+  font-family:'Inter',sans-serif;font-size:.85rem;letter-spacing:0;padding:4px 10px;z-index:3;
+}
+.wish{
+  position:absolute;top:12px;right:12px;width:32px;height:32px;border-radius:50%;
+  background:#fff;display:flex;align-items:center;justify-content:center;z-index:3;
+  transition:background .3s;box-shadow:0 4px 10px rgba(0,0,0,.08);
+}
+.wish svg{width:18px;height:18px;stroke:var(--ink-900);fill:none;stroke-width:1.6;transition:.3s;}
+.wish.active svg{fill:var(--berry-500);stroke:var(--berry-500);}
+
+.add-btn-full{
+  background:#b0000b;color:#fff;width:100%;padding:14px;border:none;
+  font-size:1.05rem;font-weight:700;text-transform:uppercase;cursor:pointer;
+  transition:background .3s;
+}
+.add-btn-full:hover{background:#8a0008;}
+
+.card-body-centered{padding:20px 10px;text-align:center;}
+.card-body-centered h3{font-size:1.05rem;font-weight:400;margin-bottom:12px;color:#222;font-family:'Inter',sans-serif;}
+.card-body-centered .price{font-size:1.2rem;font-weight:700;color:#000;font-family:'Inter',sans-serif;}
+
+/* ===== STORY ===== */
+.story{background:var(--plum-950);color:var(--cream-50);padding:120px 0;position:relative;overflow:hidden;}
+.story::before{
+  content:'';position:absolute;top:-200px;right:-200px;width:600px;height:600px;border-radius:50%;
+  background:radial-gradient(circle,rgba(200,155,60,.16),transparent 70%);
+}
+.story-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:70px;align-items:center;}
+@media(max-width:900px){.story-grid{grid-template-columns:1fr;gap:40px;}}
+.story h2{font-size:clamp(2rem,3.6vw,3rem);margin:18px 0 24px;color:var(--cream-50);}
+.story p{color:rgba(250,241,228,.72);line-height:1.8;font-size:1.02rem;margin-bottom:18px;max-width:520px;}
+.story-visual{position:relative;height:380px;display:flex;align-items:center;justify-content:center;}
+.ribbon-svg{width:100%;max-width:420px;}
+.stat-row{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:40px;padding-top:36px;border-top:1px solid var(--line);}
+.stat-row b{font-family:'Fraunces',serif;font-size:2rem;color:var(--gold-300);font-weight:500;display:block;}
+.stat-row span{font-size:.76rem;color:rgba(250,241,228,.6);letter-spacing:.03em;}
+
+/* ===== TESTIMONIALS ===== */
+.testi{padding:110px 0;background:var(--cream-100);}
+.testi-head{text-align:center;margin-bottom:56px;}
+.testi-head h2{font-size:clamp(1.9rem,3.4vw,2.8rem);margin-top:16px;}
+.testi-track-wrap{overflow:hidden;}
+.testi-track{display:flex;gap:24px;}
+.t-card{
+  min-width:320px;background:#fff;border-radius:18px;padding:32px;flex:1;
+  border:1px solid rgba(28,18,16,.08);
+}
+.t-card .stars{color:var(--gold-500);font-size:.9rem;letter-spacing:2px;margin-bottom:16px;}
+.t-card p{font-family:'Fraunces',serif;font-size:1.12rem;line-height:1.6;font-weight:400;margin-bottom:20px;}
+.t-card .who{display:flex;align-items:center;gap:12px;}
+.avatar{width:38px;height:38px;border-radius:50%;background:linear-gradient(135deg,var(--berry-500),var(--gold-500));}
+.who b{font-size:.86rem;display:block;}
+.who span{font-size:.74rem;color:#7a655e;}
+@media(max-width:760px){.testi-track{flex-direction:column;}.t-card{min-width:auto;}}
+
+/* ===== NEWSLETTER ===== */
+.news{padding:110px 0;background:var(--plum-950);position:relative;overflow:hidden;}
+.news-box{
+  max-width:640px;margin:0 auto;text-align:center;color:var(--cream-50);position:relative;z-index:2;
+}
+.news-box h2{font-size:clamp(2rem,4vw,2.8rem);margin:16px 0 14px;color:var(--cream-50);}
+.news-box p{color:rgba(250,241,228,.72);margin-bottom:34px;}
+.news-form{display:flex;gap:0;max-width:440px;margin:0 auto;border-radius:100px;overflow:hidden;background:rgba(250,241,228,.08);border:1px solid var(--line);padding:5px;}
+.news-form input{
+  flex:1;background:transparent;border:none;padding:14px 20px;color:var(--cream-50);font-size:.92rem;outline:none;
+}
+.news-form input::placeholder{color:rgba(250,241,228,.5);}
+.news-form button{background:var(--gold-500);color:var(--plum-950);padding:14px 28px;border-radius:100px;font-weight:700;font-size:.85rem;transition:background .3s;}
+.news-form button:hover{background:var(--gold-300);}
+.news-msg{margin-top:16px;font-size:.82rem;color:var(--gold-300);height:18px;opacity:0;transition:opacity .4s;}
+.news-msg.show{opacity:1;}
+
+/* ===== COMPANY INFO ===== */
+.company-info{padding:100px 0;background:var(--cream-50);}
+.info-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;}
+@media(max-width:900px){.info-grid{grid-template-columns:1fr;gap:40px;}}
+.info-text h2{font-size:clamp(2rem,3vw,2.5rem);margin-bottom:24px;color:var(--ink-900);}
+.info-list{list-style:none;margin-bottom:24px;}
+.info-list li{margin-bottom:12px;font-size:.95rem;color:rgba(28,18,16,.8);line-height:1.6;}
+.info-list strong{color:var(--ink-900);font-weight:600;}
+.map-wrap{border-radius:20px;overflow:hidden;box-shadow:0 20px 40px -10px rgba(0,0,0,.15);height:420px;width:100%;}
+.map-wrap iframe{width:100%;height:100%;border:none;}
+.doc-buttons{display:flex;gap:16px;margin-top:28px;flex-wrap:wrap;}
+.doc-btn{
+  background:var(--plum-950);color:var(--cream-50);padding:14px 24px;border-radius:100px;
+  font-size:.85rem;letter-spacing:.02em;font-weight:600;display:inline-flex;align-items:center;gap:10px;
+  transition:background .3s,transform .3s;
+}
+.doc-btn:hover{background:var(--berry-500);transform:translateY(-2px);}
+.doc-btn svg{width:18px;height:18px;stroke:currentColor;fill:none;stroke-width:2;}
+
+/* ===== FOOTER ===== */
+footer{background:#1c0710;color:rgba(250,241,228,.7);padding:70px 0 30px;}
+.foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:40px;padding-bottom:50px;border-bottom:1px solid var(--line);}
+@media(max-width:760px){.foot-grid{grid-template-columns:1fr 1fr;}}
+.foot-grid h4{color:var(--cream-50);font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;font-family:'Space Mono',monospace;font-weight:400;margin-bottom:18px;}
+.foot-grid a,.foot-grid p{display:block;font-size:.88rem;line-height:2.1;color:rgba(250,241,228,.62);transition:color .3s;}
+.foot-grid a:hover{color:var(--gold-300);}
+.foot-logo{font-family:'Fraunces',serif;font-size:1.4rem;color:var(--cream-50);margin-bottom:14px;}
+.foot-bottom{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;padding-top:26px;font-size:.76rem;color:rgba(250,241,228,.45);}
+
+/* toast */
+.toast{
+  position:fixed;bottom:28px;left:50%;transform:translateX(-50%) translateY(120%);
+  background:var(--plum-950);color:var(--cream-50);padding:16px 28px;border-radius:100px;
+  font-size:.86rem;display:flex;align-items:center;gap:10px;z-index:999;
+  transition:transform .5s var(--ease);box-shadow:0 20px 40px -10px rgba(0,0,0,.4);
+}
+.toast.show{transform:translateX(-50%) translateY(0);}
+.toast svg{width:16px;height:16px;stroke:var(--gold-300);fill:none;stroke-width:2;}
+</style>
+</head>
+<body>
+
+<header id="siteHeader">
+  <div class="nav-inner">
+    <div class="logo">Critical Vitals <span>Silk Scrub Caps</span></div>
+    <nav class="nav-links">
+      <a href="#shop">Shop</a>
+      <a href="#story">Our Story</a>
+      <a href="#testimonials">Reviews</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <div class="nav-right">
+      <a class="icon-btn" href="#shop"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg></a>
+      <a class="icon-btn" id="wishNav" href="#shop"><svg viewBox="0 0 24 24"><path d="M12 21s-7.5-4.6-10-9.1C.5 8.4 2.2 5 5.6 5 8 5 9.7 6.4 12 9c2.3-2.6 4-4 6.4-4 3.4 0 5.1 3.4 3.6 6.9C19.5 16.4 12 21 12 21z"/></svg></a>
+      <a class="icon-btn" id="cartNav" href="#shop">
+        <svg viewBox="0 0 24 24"><path d="M3 3h2l2.4 12.4A2 2 0 0 0 9.4 17H18a2 2 0 0 0 2-1.6L21 8H6"/><circle cx="10" cy="21" r="1"/><circle cx="18" cy="21" r="1"/></svg>
+        <span class="cart-count" id="cartCount">0</span>
+      </a>
+      <button class="burger" aria-label="menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-grid">
+    <div class="hero-text reveal in">
+      <span class="eyebrow">Critical Vitals LLC</span>
+      <h1>Wrap in silk.<br>Wake up in <em>royalty.</em></h1>
+      <p>Hand-finished scrub caps lined in genuine satin, cut for every hairstyle from braids to bantu knots. Bold prints, luxury feel, built for real life.</p>
+      <div class="hero-cta">
+        <a href="#shop" class="btn-primary">Shop the Collection</a>
+        <a href="#story" class="btn-ghost">Our story →</a>
+      </div>
+      <div class="hero-doc-btns">
+        <a href="Critical%20Vitals%20LLC.pdf" target="_blank" class="hero-doc-btn">
+          <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+          Critical Vitals LLC
+        </a>
+        <a href="critical%20vitals%20annual%20report%202026.pdf" target="_blank" class="hero-doc-btn">
+          <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+          Annual Report 2026
+        </a>
+      </div>
+      <div class="hero-stats">
+        <div><b>12k+</b><span>Caps shipped</span></div>
+        <div><b>4.9★</b><span>Average rating</span></div>
+        <div><b>100%</b><span>Satin-lined</span></div>
+      </div>
+    </div>
+    <div class="hero-visual reveal in">
+      <div class="cap-orbit"></div>
+      <div class="cap-orbit o2"></div>
+      <div class="hero-cap"></div>
+      <div class="price-badge"><span>Price range</span><b>$99 – $199</b></div>
+    </div>
+  </div>
+</section>
+
+<div class="marquee">
+  <div class="marquee-track" id="marqueeTrack">
+    <span>✦ SATIN-LINED SCRUB CAPS ✦ HANDCRAFTED PRINTS ✦ FREE SHIPPING OVER $150 ✦ NEW DROPS WEEKLY ✦ SATIN-LINED SCRUB CAPS ✦ HANDCRAFTED PRINTS ✦ FREE SHIPPING OVER $150 ✦ NEW DROPS WEEKLY ✦</span>
+  </div>
+</div>
+
+<section class="shop" id="shop">
+  <div class="wrap">
+    <div class="shop-head reveal">
+      <div>
+        <span class="eyebrow">The Collection</span>
+        <h2 style="margin-top:14px;">Every print tells<br>a different story.</h2>
+      </div>
+      <p>Limited-run prints on a breathable satin blend, finished with an adjustable tie for a secure, all-day fit.</p>
+    </div>
+
+    <div class="toolbar reveal">
+      <div class="filters" id="filters">
+        <button class="chip active" data-filter="all">All Caps</button>
+        <button class="chip" data-filter="floral">Floral</button>
+        <button class="chip" data-filter="graphic">Graphic</button>
+        <button class="chip" data-filter="solid">Jewel Tone</button>
+        <button class="chip" data-filter="limited">Limited</button>
+      </div>
+      <select class="sort-select" id="sortSelect">
+        <option value="default">Sort: Featured</option>
+        <option value="low">Price: Low to High</option>
+        <option value="high">Price: High to Low</option>
+      </select>
+    </div>
+
+    <div class="grid" id="productGrid">
+      <!-- cards injected by JS -->
+    </div>
+  </div>
+</section>
+
+<section class="story" id="story">
+  <div class="wrap story-grid">
+    <div class="story-visual reveal">
+      <svg class="ribbon-svg" viewBox="0 0 400 380" fill="none">
+        <path id="ribbonPath" d="M60 40 C 220 40, 40 160, 200 190 C 360 220, 180 340, 340 340" stroke="#c89b3c" stroke-width="2" stroke-dasharray="6 8"/>
+        <circle cx="60" cy="40" r="7" fill="#c23a4f"/>
+        <circle cx="340" cy="340" r="7" fill="#e3c274"/>
+      </svg>
+    </div>
+    <div class="reveal">
+      <span class="eyebrow">Our Story</span>
+      <h2>Founded on care,<br>stitched with intention.</h2>
+      <p>Critical Vitals LLC was built around a simple idea: protective haircare should feel like a treat, not an afterthought. Every cap starts as a hand-selected satin blend, cut generously for braids, locs, twists and blowouts alike.</p>
+      <p>What began as a small batch of prints for friends has grown into a full collection — still cut, sewn and quality-checked with the same care as the very first cap.</p>
+      <div class="stat-row">
+        <div><b>2021</b><span>Founded</span></div>
+        <div><b>30+</b><span>Prints released</span></div>
+        <div><b>FL</b><span>Made & shipped from</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="testi" id="testimonials">
+  <div class="wrap">
+    <div class="testi-head reveal">
+      <span class="eyebrow">Reviews</span>
+      <h2>Loved by curls, braids<br>and everything between.</h2>
+    </div>
+    <div class="testi-track-wrap reveal">
+      <div class="testi-track">
+        <div class="t-card">
+          <div class="stars">★★★★★</div>
+          <p>"Finally a bonnet that doesn't slide off by 3am. The satin is genuinely thick, not the flimsy kind."</p>
+          <div class="who"><div class="avatar"></div><div><b>Danielle R.</b><span>Verified buyer</span></div></div>
+        </div>
+        <div class="t-card">
+          <div class="stars">★★★★★</div>
+          <p>"Ordered the Whisker Wink print and it fits perfectly over box braids without any pressure on my edges."</p>
+          <div class="who"><div class="avatar"></div><div><b>Amara O.</b><span>Verified buyer</span></div></div>
+        </div>
+        <div class="t-card">
+          <div class="stars">★★★★★</div>
+          <p>"Gifted three of these for a bridal party — the packaging alone made it feel like a luxury item."</p>
+          <div class="who"><div class="avatar"></div><div><b>Priya S.</b><span>Verified buyer</span></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="news">
+  <div class="wrap">
+    <div class="news-box reveal">
+      <span class="eyebrow" style="justify-content:center;">Stay Wrapped Up</span>
+      <h2>Get first access to new prints.</h2>
+      <p>Join the list for early drops, restock alerts, and 10% off your first cap.</p>
+      <form class="news-form" id="newsForm">
+        <input type="email" placeholder="you@example.com" required>
+        <button type="submit">Subscribe</button>
+      </form>
+      <div class="news-msg" id="newsMsg">You're on the list — welcome to Critical Vitals ✦</div>
+    </div>
+  </div>
+</section>
+
+<section class="company-info" id="company-info">
+  <div class="wrap info-grid">
+    <div class="info-text reveal">
+      <span class="eyebrow">Company Details</span>
+      <h2>Official Business Information</h2>
+      <ul class="info-list">
+        <li><strong>Business Name:</strong> CRITICAL VITALS LLC</li>
+        <li><strong>Owner:</strong> JAVANSHA J JACKSON, CEO</li>
+        <li><strong>Website:</strong> criticalvitalsllc.com</li>
+        <li><strong>Email:</strong> CEO@criticalvitalsllc.com</li>
+        <li><strong>Phone:</strong> +1 (866) 312-7609</li>
+        <li><strong>EIN Num:</strong> 87-3070298</li>
+        <li><strong>Document Num:</strong> L21000432874</li>
+        <li><strong>Business Duns Num:</strong> 118420570</li>
+        <li><strong>Business Address:</strong> 2339 South 14th Street, Leesburg, FL 34748</li>
+        <li><strong>Mailing Address:</strong> 850 Teague Trail, PO Box 866, Lady Lake, FL 32159</li>
+      </ul>
+      <div class="doc-buttons">
+        <a href="Critical%20Vitals%20LLC.pdf" target="_blank" class="doc-btn">
+          <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+          Critical Vitals LLC
+        </a>
+        <a href="critical%20vitals%20annual%20report%202026.pdf" target="_blank" class="doc-btn">
+          <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+          Annual Report 2026
+        </a>
+      </div>
+    </div>
+    <div class="map-wrap reveal">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3489.176465492211!2d-81.8845669!3d28.8078216!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88e7a08b5066927d%3A0xc3910c2eab7fbcc3!2s2339%20S%2014th%20St%2C%20Leesburg%2C%20FL%2034748!5e0!3m2!1sen!2sus!4v1700000000000!5m2!1sen!2sus" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Google Map of Business Address"></iframe>
+    </div>
+  </div>
+</section>
+
+<footer id="contact">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <div class="foot-logo">Critical Vitals</div>
+        <p style="line-height:1.8;max-width:280px;">Silk-lined scrub caps designed for real hair, real life. Handcrafted and shipped from Florida.</p>
+      </div>
+      <div>
+        <h4>Shop</h4>
+        <a href="#shop">All Caps</a>
+        <a href="#shop">New Arrivals</a>
+        <a href="#shop">Best Sellers</a>
+        <a href="#shop">Limited Prints</a>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <a href="#story">Our Story</a>
+        <a href="#testimonials">Reviews</a>
+        <a href="#contact">Contact</a>
+        <a href="#">Shipping & Returns</a>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <p>CEO@criticalvitalsllc.com</p>
+        <p>+1 (866) 312-7609</p>
+        <p>2339 South 14th Street<br>Leesburg, FL 34748</p>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Critical Vitals LLC. All rights reserved.</span>
+      <span>Owner: Javansha J. Jackson, CEO</span>
+    </div>
+  </div>
+</footer>
+
+<div class="toast" id="toast">
+  <svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>
+  <span id="toastText">Added to bag</span>
+</div>
+
+<script>
+/* ---------- Product data ---------- */
+const products = [
+  {id:1,name:'Doll Duty',cat:'graphic',price:20,isNew:true,img:'img1.png'},
+  {id:2,name:'Kitty Call',cat:'graphic',price:20,isNew:true,img:'img2.png'},
+  {id:3,name:'Tooth Fairy',cat:'graphic',price:20,isNew:true,img:'img3.png'},
+  {id:4,name:'X-Ray Vision',cat:'limited',price:20,isNew:true,img:'img4.png'},
+  {id:5,name:'Amber Bloom',cat:'floral',price:20,isNew:false,img:'img5.png'},
+  {id:6,name:'Terra Solid',cat:'solid',price:20,isNew:false,img:'img6.png'},
+];
+
+const patternMap = {
+  floral:{img:"radial-gradient(circle, rgba(255,255,255,.9) 3px, transparent 3.5px)",size:"20px 20px"},
+  graphic:{img:"repeating-linear-gradient(45deg, rgba(255,255,255,.5) 0 3px, transparent 3px 14px)",size:"auto"},
+  limited:{img:"radial-gradient(circle, rgba(255,255,255,.8) 2px, transparent 2.5px)",size:"14px 14px"},
+  solid:{img:"radial-gradient(circle, rgba(255,255,255,.35) 2px, transparent 2.5px)",size:"30px 30px"},
+};
+
+const grid = document.getElementById('productGrid');
+let wishlist = new Set();
+let cartCount = 0;
+
+function renderProducts(list){
+  grid.innerHTML = list.map(p=>{
+    const pat = patternMap[p.cat];
+    return `
+    <div class="card reveal in" data-cat="${p.cat}" data-price="${p.price}">
+      <div class="card-media">
+        ${p.isNew ? '<span class="badge-new">New</span>' : ''}
+        <button class="wish" data-id="${p.id}" aria-label="wishlist">
+          <svg viewBox="0 0 24 24"><path d="M12 21s-7.5-4.6-10-9.1C.5 8.4 2.2 5 5.6 5 8 5 9.7 6.4 12 9c2.3-2.6 4-4 6.4-4 3.4 0 5.1 3.4 3.6 6.9C19.5 16.4 12 21 12 21z"/></svg>
+        </button>
+        <img src="${p.img}" alt="${p.name}">
+      </div>
+      <button class="add-btn-full add-btn" data-id="${p.id}" data-name="${p.name}">ADD TO CART</button>
+      <div class="card-body-centered">
+        <h3>${p.name} | Scrub Cap</h3>
+        <div class="price">$${p.price.toFixed(2)}</div>
+      </div>
+    </div>`;
+  }).join('');
+  bindCardEvents();
+}
+renderProducts(products);
+
+/* ---------- filters ---------- */
+document.getElementById('filters').addEventListener('click', e=>{
+  const btn = e.target.closest('.chip');
+  if(!btn) return;
+  document.querySelectorAll('.chip').forEach(c=>c.classList.remove('active'));
+  btn.classList.add('active');
+  const f = btn.dataset.filter;
+  const filtered = f==='all' ? products : products.filter(p=>p.cat===f);
+  renderProducts(applySort(filtered));
+});
+
+document.getElementById('sortSelect').addEventListener('change', e=>{
+  const activeChip = document.querySelector('.chip.active').dataset.filter;
+  const base = activeChip==='all' ? products : products.filter(p=>p.cat===activeChip);
+  renderProducts(applySort(base));
+});
+
+function applySort(list){
+  const val = document.getElementById('sortSelect').value;
+  const copy = [...list];
+  if(val==='low') copy.sort((a,b)=>a.price-b.price);
+  if(val==='high') copy.sort((a,b)=>b.price-a.price);
+  return copy;
+}
+
+/* ---------- card interactions ---------- */
+function bindCardEvents(){
+  document.querySelectorAll('.wish').forEach(btn=>{
+    btn.addEventListener('click', ()=>{
+      const id = btn.dataset.id;
+      btn.classList.toggle('active');
+      if(wishlist.has(id)) wishlist.delete(id); else wishlist.add(id);
+    });
+  });
+  document.querySelectorAll('.add-btn').forEach(btn=>{
+    btn.addEventListener('click', ()=>{
+      btn.classList.add('added');
+      setTimeout(()=>btn.classList.remove('added'),500);
+      cartCount++;
+      const cc = document.getElementById('cartCount');
+      cc.textContent = cartCount;
+      cc.classList.add('show');
+      showToast(`${btn.dataset.name} added to bag`);
+    });
+  });
+}
+
+function showToast(text){
+  const toast = document.getElementById('toast');
+  document.getElementById('toastText').textContent = text;
+  toast.classList.add('show');
+  clearTimeout(window._toastTimer);
+  window._toastTimer = setTimeout(()=>toast.classList.remove('show'), 2400);
+}
+
+/* ---------- newsletter ---------- */
+document.getElementById('newsForm').addEventListener('submit', e=>{
+  e.preventDefault();
+  document.getElementById('newsMsg').classList.add('show');
+  e.target.reset();
+});
+
+/* ---------- header hide on scroll ---------- */
+let lastY = window.scrollY;
+window.addEventListener('scroll', ()=>{
+  const header = document.getElementById('siteHeader');
+  const y = window.scrollY;
+  if(y > lastY && y > 140) header.classList.add('hide');
+  else header.classList.remove('hide');
+  lastY = y;
+});
+
+/* ---------- scroll reveal ---------- */
+const io = new IntersectionObserver(entries=>{
+  entries.forEach(en=>{ if(en.isIntersecting) en.target.classList.add('in'); });
+},{threshold:.15});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+/* ---------- ribbon path draw on scroll into view ---------- */
+const ribbon = document.getElementById('ribbonPath');
+if(ribbon){
+  const len = ribbon.getTotalLength();
+  ribbon.style.strokeDasharray = len;
+  ribbon.style.strokeDashoffset = len;
+  const rIo = new IntersectionObserver(entries=>{
+    entries.forEach(en=>{
+      if(en.isIntersecting){
+        ribbon.animate([{strokeDashoffset:len},{strokeDashoffset:0}],{duration:1800,easing:'ease-out',fill:'forwards'});
+        rIo.disconnect();
+      }
+    });
+  },{threshold:.4});
+  rIo.observe(ribbon);
+}
+
+/* ---------- reduced motion respect ---------- */
+if(window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+  document.querySelectorAll('*').forEach(el=>{ el.style.animationDuration='0.01ms'; el.style.transitionDuration='0.01ms'; });
+}
+</script>
+</body>
+</html>
